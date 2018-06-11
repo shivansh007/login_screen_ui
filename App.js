@@ -1,11 +1,13 @@
 import React, { Component } from 'react';
-import { StyleSheet, View } from 'react-native';
+import { View, StyleSheet } from 'react-native';
+import Main from './src/components/Main';
 
 type Props = {};
 export default class App extends Component<Props> {
   render() {
     return (
       <View style={styles.container}>
+        <Main/>
       </View>
     );
   }
@@ -14,6 +16,6 @@ export default class App extends Component<Props> {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#171D21',
+    backgroundColor: '#171D21'
   }
 });
