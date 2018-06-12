@@ -2,6 +2,29 @@ import React, { Component } from 'react';
 import { Text, View, StyleSheet, TextInput, TouchableOpacity } from 'react-native';
 
 export default class LoginForm extends Component {
+
+  state = {
+    email: '',
+    password: ''
+  }
+
+  _onPress(){
+    fetch('http://localhost:3000/login',{
+      method: 'post',
+      headers: {'Content-Type': 'application/json'},
+      body: JSON.stringify(this.state)
+    }).then((response) => response.json())
+    .then((responseJson) => {
+      if(responseJson.errors)
+        console.log(responseJson.errors[0].detail);
+      else
+        console.log(responseJson.auth_token);
+    })
+    .catch((error) => {
+      console.error(error);
+    });
+  }
+
   render() {
     return (
        <View style={styles.container}>
@@ -16,6 +39,8 @@ export default class LoginForm extends Component {
           placeholderTextColor='rgba(28,53,63, 1)' 
           underlineColorAndroid='rgba(0,0,0,0)'
           autoComplete='off'
+          onChangeText={(email) => this.setState({email})}
+          value={this.state.email}
         />
         <Text style={styles.label}>PASSWORD</Text>
         <TextInput 
@@ -24,8 +49,10 @@ export default class LoginForm extends Component {
           placeholderTextColor='rgba(28,53,63, 1)'
           style={styles.textInputStyle}
           underlineColorAndroid='rgba(0,0,0,0)'
+          onChangeText={(password) => this.setState({password})}
+          value={this.state.password}
         />
-        <TouchableOpacity onPress={() => alert()} style={styles.loginButton}>
+        <TouchableOpacity onPress={() => this._onPress()} style={styles.loginButton}>
           <Text style={styles.loginButtonText}>LOGIN</Text>
         </TouchableOpacity>
       </View>
