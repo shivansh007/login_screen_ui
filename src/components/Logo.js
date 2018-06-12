@@ -15,7 +15,7 @@ export default class Main extends Component {
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
+    flex: 4,
     alignItems: 'center',
     justifyContent: 'center'
   },

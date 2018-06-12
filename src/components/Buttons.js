@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { Router, Scene, Actions, ActionConst } from 'react-native-router-flux';
 import { View, StyleSheet, TouchableOpacity, Text } from 'react-native';
 
 export default class  Button extends Component {

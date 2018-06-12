@@ -62,9 +62,6 @@ export default class LoginForm extends Component {
         <TouchableOpacity onPress={() => this._onPress()} style={styles.loginButton}>
           <Text style={styles.loginButtonText}>{this.state.loginText}</Text>
         </TouchableOpacity>
-        <TouchableOpacity>
-          <Text style={styles.registerLink}>Don't have an account? Signup</Text>
-        </TouchableOpacity>
       </View>
     );
   }
@@ -72,7 +69,7 @@ export default class LoginForm extends Component {
 
 const styles = StyleSheet.create({
   container: {
-    flex: 2,
+    flex: 4,
     alignItems: 'center',
     justifyContent: 'center'
   },
@@ -107,8 +104,5 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     borderColor: '#FFFFFF',
     borderRadius: 50,
-  },
-  registerLink: {
-    color: '#FFFFFF'
   }
 });

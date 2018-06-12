@@ -1,7 +1,7 @@
 import React, { Component, Navigator } from 'react';
 import { View, StyleSheet } from 'react-native';
 import { Router, Scene, Actions, ActionConst } from 'react-native-router-flux';
-import LoginForm from './src/components/LoginForm';
+import SignupForm from './src/components/SignupForm';
 import Main from './src/components/Main';
 
 type Props = {};
@@ -15,9 +15,9 @@ export default class App extends Component<Props> {
               hideNavBar={true}
               initial={true}
             />
-            <Scene key="loginScreen"
+            <Scene key="signupScreen"
               direction='bottomToTop'
-              component={LoginForm}
+              component={SignupForm}
               hideNavBar={true}
             />
           </Scene>
