@@ -5,20 +5,30 @@ export default class LoginForm extends Component {
 
   state = {
     email: '',
-    password: ''
+    password: '',
+    loginText: 'LOGIN'
   }
 
   _onPress(){
+    this.setState({loginText: 'Loggin In'})
     fetch('http://localhost:3000/login',{
       method: 'post',
       headers: {'Content-Type': 'application/json'},
-      body: JSON.stringify(this.state)
+      body: JSON.stringify({
+        email: this.state.email,
+        password: this.state.password
+      })
     }).then((response) => response.json())
     .then((responseJson) => {
       if(responseJson.errors)
-        console.log(responseJson.errors[0].detail);
+      {
+        alert(responseJson.errors[0].detail);
+      }
       else
+      {
+        alert('Login Successful')
         console.log(responseJson.auth_token);
+      }
     })
     .catch((error) => {
       console.error(error);
@@ -53,7 +63,7 @@ export default class LoginForm extends Component {
           value={this.state.password}
         />
         <TouchableOpacity onPress={() => this._onPress()} style={styles.loginButton}>
-          <Text style={styles.loginButtonText}>LOGIN</Text>
+          <Text style={styles.loginButtonText}>{this.state.loginText}</Text>
         </TouchableOpacity>
       </View>
     );
