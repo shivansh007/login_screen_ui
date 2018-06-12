@@ -1,14 +1,19 @@
 import React, { Component } from 'react';
-import { View, StyleSheet } from 'react-native';
+import { View, StyleSheet, ImageBackground } from 'react-native';
 import Logo from './Logo';
-import Buttons from './Buttons';
+import LoginForm from './LoginForm';
+import yourSourceFile from '../images/background.jpg'
 
 export default class Main extends Component {
   render() {
     return (
        <View style={styles.container}>
-        <Logo/>
-        <Buttons/>
+       <ImageBackground
+          source={yourSourceFile}
+          style={{width: '100%', height: '100%'}}>
+          <Logo/>
+          <LoginForm/>
+        </ImageBackground>
       </View>
     );
   }

@@ -38,15 +38,12 @@ export default class LoginForm extends Component {
   render() {
     return (
        <View style={styles.container}>
-        <Text style={styles.heading}>
-          Login
-        </Text>
         <Text style={styles.label}>EMAIL ADDRESS</Text>
         <TextInput 
           style={styles.textInputStyle} 
           autoCapitalize='none' 
           placeholder="Email Address" 
-          placeholderTextColor='rgba(28,53,63, 1)' 
+          placeholderTextColor='rgba(255,255,255,0.2)'
           underlineColorAndroid='rgba(0,0,0,0)'
           autoComplete='off'
           onChangeText={(email) => this.setState({email})}
@@ -56,7 +53,7 @@ export default class LoginForm extends Component {
         <TextInput 
           secureTextEntry={true}
           placeholder="Password"
-          placeholderTextColor='rgba(28,53,63, 1)'
+          placeholderTextColor='rgba(255,255,255,0.2)'
           style={styles.textInputStyle}
           underlineColorAndroid='rgba(0,0,0,0)'
           onChangeText={(password) => this.setState({password})}
@@ -65,6 +62,9 @@ export default class LoginForm extends Component {
         <TouchableOpacity onPress={() => this._onPress()} style={styles.loginButton}>
           <Text style={styles.loginButtonText}>{this.state.loginText}</Text>
         </TouchableOpacity>
+        <TouchableOpacity>
+          <Text style={styles.registerLink}>Don't have an account? Signup</Text>
+        </TouchableOpacity>
       </View>
     );
   }
@@ -72,8 +72,7 @@ export default class LoginForm extends Component {
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
-    backgroundColor: '#171D21',
+    flex: 2,
     alignItems: 'center',
     justifyContent: 'center'
   },
@@ -91,7 +90,7 @@ const styles = StyleSheet.create({
     fontSize: 20,
     width: '80%',
     borderRadius: 50,
-    backgroundColor: 'rgba(1,1,1,0.5)',
+    backgroundColor: 'rgba(255,255,255,0.1)',
     fontSize: 20,
     height: 45,
     color: '#FFFFFF',
@@ -108,5 +107,8 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     borderColor: '#FFFFFF',
     borderRadius: 50,
+  },
+  registerLink: {
+    color: '#FFFFFF'
   }
 });
