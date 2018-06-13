@@ -26,7 +26,7 @@ export default class Main extends Component {
           style={{width: '100%', height: '100%'}}>
           <Logo/>
           {this.state.formElement}
-          <TouchableOpacity onPress={()=>this.handlePress()}>
+          <TouchableOpacity onPress={()=>this.handlePress()} style={{alignItems: 'center',marginBottom: 30}}>
             <Text style={styles.registerLink}>Don't have an account? Signup</Text>
           </TouchableOpacity>
         </ImageBackground>
